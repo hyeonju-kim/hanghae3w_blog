@@ -1,4 +1,4 @@
-package com.example.hanghae_blog.controller;//
+package com.example.hanghae_blog.controller;///
 
 import com.example.hanghae_blog.dto.PostRequestDto;
 import com.example.hanghae_blog.dto.PostResponseDto;
