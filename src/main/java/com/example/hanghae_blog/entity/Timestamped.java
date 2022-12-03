@@ -1,4 +1,4 @@
-package com.example.hanghae_blog.entity;//
+package com.example.hanghae_blog.entity;///
 
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.MappedSuperclass;
