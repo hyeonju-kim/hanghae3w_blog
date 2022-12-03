@@ -1,4 +1,4 @@
-package com.example.hanghae_blog;
+package com.example.hanghae_blog;//
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

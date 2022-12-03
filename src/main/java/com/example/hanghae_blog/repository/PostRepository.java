@@ -1,4 +1,4 @@
-package com.example.hanghae_blog.repository;
+package com.example.hanghae_blog.repository;//
 
 import com.example.hanghae_blog.dto.PostResponseDto;
 import com.example.hanghae_blog.entity.Post;

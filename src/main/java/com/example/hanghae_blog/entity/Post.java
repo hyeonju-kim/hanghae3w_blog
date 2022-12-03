@@ -1,4 +1,4 @@
-package com.example.hanghae_blog.entity;
+package com.example.hanghae_blog.entity;//
 
 import com.example.hanghae_blog.dto.PostRequestDto;
 import jakarta.persistence.*;
