@@ -1,5 +1,6 @@
 package com.example.hanghae_blog.controller;///
 
+import com.example.hanghae_blog.dto.DeleteReponseDto;
 import com.example.hanghae_blog.dto.PostRequestDto;
 import com.example.hanghae_blog.dto.PostResponseDto;
 import com.example.hanghae_blog.entity.Post;
@@ -23,7 +24,7 @@ public class PostController {
 
 	// 2. 게시글 전체 목록 조회
 	@GetMapping("/api/post")
-	public List<Post> getPostList() {
+	public List<PostResponseDto> getPostList() {
 		return postService.getPostList();
 	}
 
@@ -41,8 +42,8 @@ public class PostController {
 
 	// 5. 선택한 게시글 삭제
 	@DeleteMapping("/post/{id}")
-	public String delete(@PathVariable Long id, @RequestBody PostRequestDto requestDto) {
+	public DeleteReponseDto delete(@PathVariable Long id, @RequestBody PostRequestDto requestDto) {
 //		return new PostDeleteDto(postService.delete(id, requestDto));
-		return postService.delete(id, requestDto);
+		 return postService.delete(id, requestDto);
 	}
 }
