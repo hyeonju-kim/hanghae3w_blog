@@ -26,7 +26,7 @@ public class PostService {
         return new PostResponseDto(post);
     }
 
-    // 2. 게시글 전체 목록 조회 (Dto로 반환? Post로 반환?)
+    // 2. 게시글 전체 목록 조회 (Dto로 반환? Post로 반환?) -> Dto로 !
     @Transactional
     public List<PostResponseDto> getPostList() {
         List<Post> postList = postRepository.findAllByOrderByModifiedAtDesc();
