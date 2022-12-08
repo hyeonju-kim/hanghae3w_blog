@@ -3,10 +3,10 @@ package com.example.hanghae_blog.dto;
 import lombok.Getter;
 
 @Getter
-public class DeleteReponseDto {
+public class CommentDeleteDto {
     private String response;
 
-    public DeleteReponseDto(String response){
+    public CommentDeleteDto(String response) {
         this.response = response;
     }
 }
