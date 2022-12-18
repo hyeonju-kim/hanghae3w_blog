@@ -15,7 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 public class Post extends Timestamped{
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	@Column(nullable = false)
@@ -30,8 +30,9 @@ public class Post extends Timestamped{
 	@OneToMany(mappedBy = "posts")
 	private List<Comment> commentList = new ArrayList<>();
 
-	@ManyToOne
-	private User users;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "user_id")
+	private User user;
 
 	// @Entity 어노테이션 붙은 클래스는 기본생성자가 필수!!
 	public Post(PostRequestDto requestDto, String username) {
@@ -43,6 +44,11 @@ public class Post extends Timestamped{
 	public void update(PostRequestDto requestDto) {
 		this.title = requestDto.getTitle();
 		this.content = requestDto.getContent();
-		this.username = this.users.getUsername();
+	}
+
+	// user를 받아서 user에 post를 세팅하기
+	public void setUser(User user) {
+		this.user = user;
+		user.getPosts().add(this);
 	}
 }

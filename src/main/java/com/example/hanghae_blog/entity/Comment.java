@@ -5,8 +5,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Optional;
 
 @Entity
 @Getter
@@ -22,10 +21,10 @@ public class Comment extends Timestamped {
     @Column(nullable = false)
     private String username;
 
-    @ManyToOne
-    private User users;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private User user;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Post posts;
 
     public Comment(CommentRequestDto requestDto, String username) {
@@ -35,6 +34,12 @@ public class Comment extends Timestamped {
 
     public void update(CommentRequestDto requestDto) {
         this.content = requestDto.getContent();
-        this.username = this.users.getUsername();
+        this.username = this.user.getUsername();
+    }
+
+    public void setPostsAndUsers(Post posts, User user) {
+        this.posts = posts;
+        this.user = user;
+        posts.getCommentList().add(this);
     }
 }

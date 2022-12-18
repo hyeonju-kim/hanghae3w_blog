@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.Value;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -17,6 +18,12 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
     private final UserService userService;
 
+    /*
+        HYUNSOO
+        DTO는 왜쓸까?
+        <DATA -> ENTITY>
+        회원가입을 시켰다. -> <JSON> ->
+     */
     // 회원가입
     @PostMapping("/signup")
     public SignupResponseDto signup(@RequestBody @Valid SignupRequestDto signupRequestDto) {

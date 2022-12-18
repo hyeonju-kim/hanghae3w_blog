@@ -42,7 +42,7 @@ public class UserService {
             }
             role = UserRoleEnum.ADMIN;
         }
-
+        //DTO -> ENTITY signUpRequestDto -> USER
         User user = new User(username, password, role);
         userRepository.save(user);
     }
